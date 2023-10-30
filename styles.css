@@ -1,0 +1,88 @@
+body {
+text-align: center;
+}
+
+.playerOptionsContainer {
+    display: flex;
+    margin: 2vh auto;
+    justify-content: center;
+    max-width: 705px;
+}
+
+.enemyChoiceContainer {
+    display: flex;
+    margin: 2vh auto;
+    justify-content: center;
+    width: 25vw;
+    max-width: 175px;
+    font-size: 0.85em;
+}
+
+.playerOptions {
+    border: 3px solid black;
+    margin: 0px 10px;
+    /* min-height: 25vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 0;
+}
+
+.enemyChoice {
+    border: 3px solid black;
+    margin: 0px 10px;
+    /* min-height: 25vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 0;
+}
+
+.playerOptions > * {
+    flex: 1 1 0;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+}
+
+.enemyChoice > * {
+    flex: 1 1 0;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    width: 100%;
+}
+
+
+.playerOptions > p {
+    padding-top: 16px;
+    border-top: 3px solid black;
+
+}
+
+.enemyChoice > p {
+    padding-top: 16px;
+
+    border-top: 3px solid black;
+
+}
+
+.playerOptions > img {
+    min-width: 0px;
+    width: 100%;
+    border-bottom: 3px solid black;
+    flex: 1 1 auto;
+
+
+}
+
+.enemyChoice > img {
+    min-width: 0px;
+    width: 100%;
+    border-bottom: 3px solid black;
+    flex: 1 1 auto;
+}

@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <ttle>Rock Paper Scissors</title>
+    <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="styles.css">
-        <script src="code.js"></script>
+        <script src="code.js" defer></script>
 </head>
 <body>
+    <div class="header">
+    <h1>Welcome to Rock Papa Scissors</h1>
+    </div>
+    <div class="Description">Pick your weapon!
+        <button>FIGHT</button>
+    </div>
+    <div class="playerOptionsContainer">
+        <div class="playerOptions" id="RockDiv">
+            <img src="https://i.kym-cdn.com/entries/icons/facebook/000/037/848/cover2.jpg" height="150" width="150" alt="">
+            <p>The rock, formerly known as Dwayne Johnson, a former WWE wrestler and an alleged movie star.</p>
+        </div>
+        <div class="playerOptions" id="PaperDiv">
+            <img src="https://uproxx.com/wp-content/uploads/2017/12/john-cena-gel-pens.jpg?w=650" height="150" width="150" alt="">
+            <p>Xiaong Xi - na, formerly known as John Cena, a WWE Wrestler turned shaolin, Bing Chilling enthusiast.</p>
+        </div>
+        <div class="playerOptions" id="ScissorsDiv">
+            <img src="https://static.vecteezy.com/system/resources/previews/003/808/404/non_2x/scissors-icon-for-web-presentation-logo-infographic-haircut-tailor-hairdresser-haircut-free-vector.jpg" height="150" width="150" alt="">
+            <p>The mighty Scissors, can be used to cut John Xinas sushi rolls, vulnerable to The Rock's bad movies.</p>
+        </div>
+    </div>
+    <div>Your enemy picked!</div>
+    <div class="enemyChoiceContainer">
+        <div class="enemyChoice">
+            <img src="data:image/png;base64,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" height="100" width="100" alt="">
+            <p>The mighty Scissors, can be used to cut John Xinas sushi rolls, vulnerable to The Rock's bad movies.</p>    
+        </div>
+    </div>
+    <div id="outcome">
+        <p id="outcomeText">Outcome:</p>
+        <img id="outcome" src="data:image/png;base64,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" height="150" width="150">
+    </div>
 </body>
 </html>

@@ -8,6 +8,23 @@ let computer_choice_value
 let winner
 let closed = false
 
+let LossSrc = "https://preview.redd.it/vx2dgjvpkvs71.jpg?width=320&format=pjpg&auto=webp&s=3e962b7ea922d8f330ba81b5f9800ff683029b5a"
+let winSrc = "https://i.kym-cdn.com/entries/icons/facebook/000/027/195/cover10.jpg"
+
+let outcomeText = document.querySelector("#outcomeText")
+
+let humanChoiceButtons = document.querySelectorAll('.playerOptions')
+humanChoiceButtons.forEach(button => {
+    button.addEventListener('click',(e) => {getHumanChoice(e.currentTarget)})});
+
+getHumanChoice = (choice) => {
+    human_choice_value = choice.id
+    alert(choice.id)
+    choice.style.boxShadow = "0px 0px 0px 5px yellow"
+    return (human_choice_value)
+    }
+    
+
 let gameRound = () => {
 // testing if program has been closed
     if (closed == true) {return [score,round]}
@@ -15,16 +32,6 @@ let gameRound = () => {
 console.log("Round " + round)
 //Get players rps choices
 //get human rps choice
-getHumanChoice = () => {
-    human_choice_value = prompt("Rock Paper or Scissors:")
-    if (human_choice_value != null) {human_choice_value = human_choice_value.toLowerCase()}
-    if (human_choice_value != "rock" && human_choice_value != "paper" && human_choice_value !== "scissors" && human_choice_value !== "")
-    {alert("not a legal choice")
-getHumanChoice()}
-return (human_choice_value)
-}
-human_choice_value = getHumanChoice()
-
 //get computer rps choice
 getComputerChoice = () => {
 let number = Math.random()
@@ -36,31 +43,31 @@ return computer_choice_value}
 computer_choice_value = getComputerChoice()
 //Determine winner
 switch (human_choice_value) {
-    case "rock":
+    case "rockDiv":
         if (computer_choice_value == "scissors") {winner = "human"}
         else if (computer_choice_value == "paper") {winner = "computer"}
         else {winner = "draw"}
         break;
-    case "paper":
+    case "paperDiv":
         if (computer_choice_value == "rock") {winner = "human"}
         else if (computer_choice_value == "scissors") {winner = "computer"}
         else {winner = "draw"}
         break;
-    case "scissors":
+    case "scissorsDiv":
         if (computer_choice_value == "paper") {winner = "human"}
         else if (computer_choice_value == "rock") {winner = "computer"}
         else {winner = "draw"}
     break;
     default:
-    alert ("empty, closing program")
-    closed = true
-    return closed
+    // alert ("empty, closing program")
+    // closed = true
+    // return closed
 }
 
 //Announce winner
 if (winner == "human") {
     console.log(`${human_choice_value} beats ${computer_choice_value}`)
-    alert("Human Wins!")
+    outcomeText.textContent = "Outcome: You Win!"
     score[0] += 1
 }
 else if (winner == "computer") {
@@ -81,11 +88,11 @@ round += 1
 return [score,round]
 }
 
-let game = () => {
-    [score, round] = gameRound()
-    [score, round] = gameRound()
-    [score, round] = gameRound()
+// let game = () => {
+//     [score, round] = gameRound()
+//     [score, round] = gameRound()
+//     [score, round] = gameRound()
 
 
-}
-game()
+// }
+// game()
