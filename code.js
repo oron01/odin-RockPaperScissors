@@ -18,6 +18,13 @@ let LOSSIMAGE = "https://preview.redd.it/vx2dgjvpkvs71.jpg?width=320&format=pjpg
 let WINIMAGE = "https://i.kym-cdn.com/entries/icons/facebook/000/027/195/cover10.jpg"
 let ILLEGALCHOICEIMAGE = "https://famisafe.wondershare.com/images/article/2023/05/bruh-meme-2.jpg"
 let DRAWIMAGE = "https://staticg.sportskeeda.com/editor/2022/08/c8013-16603931227930-1920.jpg"
+let LOSSAUDIO = new Audio('LOSSAUDIO.mp3')
+LOSSAUDIO.duration = 2
+LOSSAUDIO.volume = 0.01
+let WINAUDIO = new Audio('WINAUDIO.mp3')
+WINAUDIO.duration = 2
+WINAUDIO.volume = 0.01
+let currentAudio 
 
 let outcomeText = document.querySelector("#outcomeText")
 let outcomeImage = document.querySelector('#outcomeImage')
@@ -57,7 +64,7 @@ if (number < 0.333) {computerChoiceValue = "rock"}
 else if (number < 0.666) {computerChoiceValue = "paper"}
 else if (number <= 1) {computerChoiceValue = "scissors"}
 else {alert("Something fucked up on line 20")}
-alert(computerChoiceValue)
+// alert(computerChoiceValue)
 return computerChoiceValue}
 computerChoiceValue = getComputerChoice()
 //Determine winner
@@ -89,11 +96,16 @@ if (winner == "human") {
     outcomeText.textContent = "Outcome: You Win!"
     outcomeImage.src = WINIMAGE
     score[0] += 1
+    WINAUDIO.play()
+    currentAudio = WINAUDIO
 }
 else if (winner == "computer") {
     outcomeText.textContent = "Outcome: You Lose!"
     outcomeImage.src = LOSSIMAGE
     score[1] += 1
+    LOSSAUDIO.play()
+    currentAudio = LOSSAUDIO
+
 
 }
 else if (winner == "draw") {
@@ -125,7 +137,10 @@ computerChoiceImage.src = QUESTIONMARKIMAGE
 computerChoiceText.textContent = "?"
 outcomeImage.src = QUESTIONMARKIMAGE
 fightButton.textContent = "FIGHT!"
+if (currentAudio) {currentAudio.pause()
+currentAudio.currentTime = 0}
 fightButton.addEventListener('click',fightFunction
+
 )
 stats.textContent = `Round: ${round} | Score: You - ${score[0]} Computer - ${score[1]}`
 }
