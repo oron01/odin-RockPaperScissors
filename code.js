@@ -23,8 +23,10 @@ LOSSAUDIO.duration = 2
 LOSSAUDIO.volume = 0.01
 let WINAUDIO = new Audio('WINAUDIO.mp3')
 WINAUDIO.duration = 2
-WINAUDIO.volume = 0.01
+WINAUDIO.volume = 0.3
 let currentAudio 
+let TIEAUDIO = new Audio('TIEAUDIO.mp3')
+TIEAUDIO.volume = 0.3
 
 let outcomeText = document.querySelector("#outcomeText")
 let outcomeImage = document.querySelector('#outcomeImage')
@@ -111,6 +113,8 @@ else if (winner == "computer") {
 else if (winner == "draw") {
     outcomeText.textContent = "Outcome: None Wins!"
     outcomeImage.src = DRAWIMAGE
+    TIEAUDIO.play()
+    currentAudio = TIEAUDIO
 }
 else {outcomeText.textContent = "Outcome: You didn't pick a weapon, try again."
 outcomeImage.src = ILLEGALCHOICEIMAGE}
